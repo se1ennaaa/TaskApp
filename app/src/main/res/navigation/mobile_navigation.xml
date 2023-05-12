@@ -3,23 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/onBoardingFragment">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.taskapp.ui.home.HomeFragment"
+        android:name="com.example.appleadd.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.appleadd.ui.task.TaskFragment"
+        android:label="Task"
+        tools:ignore="DuplicateIds"
+        tools:layout="@layout/fragment_task">
+        <argument
+            android:name="task"
+            android:defaultValue="@null"
+            app:argType="com.example.appleadd.model.Task"
+            app:nullable="true" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.taskapp.ui.dashboard.DashboardFragment"
+        android:name="com.example.appleadd.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.taskapp.ui.notifications.NotificationsFragment"
+        android:name="com.example.appleadd.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.appleadd.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.appleadd.ui.onBoard.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
 </navigation>
